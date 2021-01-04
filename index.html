@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <style>
         form {
-            width: 30vw;
+            width: 25rem;
             left: 50%;
             position: relative;
             transform: translateX(-50%);
@@ -19,10 +19,32 @@
         .btn {
             width: 100%;
         }
+
+        .requirement-txt {
+            font-size: 0.9rem;
+            margin: 10px 0 0 0;
+            width: 95%;
+        }
+
+        #success-txt {
+            color: #1db643;
+            margin: 10px 0 0 0;
+            text-align: center;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        @media only screen and (max-width: 500px) {
+            form {
+                width: 85%;
+            }
+        };
     </style>
 </head>
 <body>
-    <form>
+    <form onsubmit="return validateForm()">
         <div class="mb-3">
           <label for="email-input" class="form-label">Email address</label>
           <input type="email" class="form-control" id="email-input" aria-describedby="emailHelp">
@@ -33,6 +55,8 @@
           <input type="password" class="form-control" id="password-input">
         </div>
         <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
-      </form>
+        <p class="requirement-txt text-secondary">Password should be at least 8 characters long and include a special character.</p>
+        <p id="success-txt" class="hidden">Success!</p>
+    </form>
 </body>
 </html>
